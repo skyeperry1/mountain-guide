@@ -1,0 +1,63 @@
+    <!DOCTYPE html>
+<html ng-app="mountainguide">
+  <head>
+      <meta charset="utf-8" />
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css">
+
+      <link rel="stylesheet" href="/stylesheets/style.css" />
+      <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.16/angular.js" data-semver="1.2.16"></script>
+      <script src="/javascripts/app.js"></script>
+      <script src="/javascripts/mountains.js"></script>
+</head>
+<body >
+  <div class="container">
+
+<div ng-controller="WikiController as wiki">
+
+    <pre>{{wiki.wikiData | json}}</pre>
+    
+    <input ng-model="wiki.pojam" ng-change="wiki.getInfo()">
+    
+    <pre>{{wiki.wikiData.query.pages | json}}</pre>
+    
+    {{wiki.text}}
+        
+</div>
+
+  <div ng-include="'navbar.html'"></div>
+
+
+    <div class="" ng-controller='MountainController as mountain'>
+
+      <div class="row">
+
+        <div ng-repeat="mountain in mountain.info | orderBy: '-elevation'" class="col-md-4 well">
+
+          <mountain-panel></mountain-panel>  
+
+        </div><!--Mountain ng-repeat-->
+
+      </div><!--row-->
+
+    </div><!--MountainConroller-->
+
+
+  <!-- Latest compiled and minified jQuery -->
+  <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/js/flat-ui.min.js"integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous" ></script>
+
+  </div><!--Body Container-->
+</body>
+</html>
+    
