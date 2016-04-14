@@ -8,15 +8,18 @@ app.controller('MountainController', function(WeatherService){
 	 
 
 	function updateMtnWeather(element, index, array) {
+		if(array[index].coordinates.lon &&  array[index].coordinates.lat){
 	array[index].weatherconditions = WeatherService.getWeather(array[index].coordinates.lon, array[index].coordinates.lat);
   	console.log(array[index].weatherconditions);
-	}  
+  	}
+	};  
 
 	
 }); //MountainController(Main)
 
 var mountains = [
-	{
+	{	
+		rank : 1,
 		name : "Mount Washington",
 		elevation : 6288,
 		location : "Pinkham's Grant, NH",
@@ -37,7 +40,8 @@ var mountains = [
 		coordinates: {lon: 44.270489039 , lat: -71.303246453},
 		weatherconditions: null
 	},
-	{
+	{	
+		rank: 43,
 		name : "Owl's Head",
 		elevation : 4025,
 		location : "Frankconia, NH",
@@ -48,11 +52,6 @@ var mountains = [
 					date: new Date(),
 					trail: "Main trail",
 					body: "It was a good hike"
-				},
-				{
-					date:  new Date(),
-					trail: "west trail",
-					body: "It was a crappy hike"
 				}
 		],
 		coordinates: {lon: 44.144444 , lat: -71.605},
@@ -114,78 +113,6 @@ return{
   }  //End getWeather
   }; //End Factory Return
 });  //End WeatherService Factory
-
-
-app.factory('wikiService', function($http) {
-
-    var wikiService = {
-        get: function(term) {
-            return $http.jsonp('http://wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&titles=' + term + '&format=json&callback=JSON_CALLBACK');
-        }
-    };
-    return wikiService;
-});
-
-
-app.controller('WikiController', function($scope, wikiService) {
-    var wiki = this;
-    wiki.pojam = 'Mount_Liberty_(New_Hampshire)';
-      
-   	wiki.getInfo = function(){
-        wikiService.get(wiki.pojam).then(function(data) {
-            wiki.wikiData = data.data;
-         	var id = Object.keys(wiki.wikiData.query.pages)[0];
-       	 	wiki.text = wiki.wikiData.query.pages[id].revisions[0]['*'];
-       	 	
-       	 	//Split the text into an array of newline charecters
-       	 	
-       	 	var mysplit = wiki.text.split("\n");
-
-       	 		
-       	 	//console.log(mysplit);
-       	 	var elevation;
-       	 	
-       	 	var mymatch;
-
-       	 	var searchTerms = ['lat_d','long_d','location', "region", 'elevation_ft'];
-
-       	 	for(var i=0; i < mysplit.length; i++){
-       	 		for(var j=0; j < searchTerms.length; j++){
-	       	 		if( mysplit[i].match(searchTerms[j]) ){
-	   	 			mymatch = mysplit[i];
-	   	 			console.log(mymatch);
-	   	 			mymatch = mymatch.replace(/[^\d\-\.\|]/g,'');
-	   	 			console.log("After Replace" + mymatch);
-
-	   	 			//Count the periods to see if both lon and lat are together
-	   	 			var letter = '\\.';
-	   	 			var periodCount = ( mymatch.match( RegExp(letter,'g') ) || [] ).length;	   	 		
-	   	 			console.log("periosCount: " + periodCount);
-
-	   	 			if( periodCount > 1){
-	   	 				console.log("more than two periods found");
-	   	 				mymatch = mymatch.replace(/[^\d\-\.]/g,' ');
-	   	 				mymatch = mymatch.trim().split(" ");
-	   	 				console.log(mymatch);
-	   	 			}
-
-	   	 			console.log(mymatch);	   	 
-	   	 			console.log("******MATCH FOUND*******" + searchTerms[j] + mymatch);
-	   	 			} //End Match Sanatizing
-				}
-
-       	 	} //End Data Array Loop
-
-       	 	
-            
-        });
-    }	// getWikiInfo
- 
-
-wiki.getInfo();
-    
-});    
-
 
 
 })(); //Function Wrapper
