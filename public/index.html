@@ -19,17 +19,7 @@
 <body >
   <div class="container">
 
-<div ng-controller="WikiController as wiki">
 
-    <pre>{{wiki.wikiData | json}}</pre>
-    
-    <input ng-model="wiki.pojam" ng-change="wiki.getInfo()">
-    
-    <pre>{{wiki.wikiData.query.pages | json}}</pre>
-    
-    {{wiki.text}}
-        
-</div>
 
   <div ng-include="'navbar.html'"></div>
 
