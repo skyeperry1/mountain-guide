@@ -17,10 +17,10 @@
 });//PanelController
 
 app.controller('NoteController',function(){
-	this.note = {};
+	this.note = {trail: 'Please Select a Trail', body: "", date: new Date() };
 	this.addNote = function(mountain){
 		mountain.notes.push(this.note);
-		this.note = {};
+		this.note = {trail: 'Please Select a Trail', body: "", date: new Date() }; // Reset the note
 	};
 
 });//NoteController
@@ -51,4 +51,5 @@ app.directive('mountainPanel', function(){
 		controllerAs: 'panel' //mountainPanel Controller
 	};
 });
+
 })();

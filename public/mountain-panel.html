@@ -1,21 +1,23 @@
-<img ng-src="{{mountain.image}}"/>
-<h3>{{ mountain.name }}</h3>
-<section>
-    <ul class="nav nav-pills" >
+<div class="card">
+<img ng-src="{{mountain.image}}" class="card-img-top"/>
+<h3 class="card-title">{{ mountain.name }}</h3>
 
-      <li ng-class="{ active:panel.isSelected(1)}">
-        <a href ng-click="panel.selectTab(1)">Info</a>
-      </li>
 
-      <li ng-class="{ active:panel.isSelected(2)}">
-        <a href ng-click="panel.selectTab(2)">Weather</a>
-      </li>
 
-      <li ng-class="{ active:panel.isSelected(3)}" >
-        <a href ng-click="panel.selectTab(3)">My Climb</a>
-      </li>
+  <div class='text-center'>
 
-    </ul>
+    <div class="btn-toolbar">
+      <div class="btn-group">
+        <a class="btn btn-primary" ng-click="panel.selectTab(1)" ng-class="{ active:panel.isSelected(1)}" href="">Info</a>
+        <a class="btn btn-primary" ng-click="panel.selectTab(2)" ng-class="{ active:panel.isSelected(2)}" href="">Weather</a>
+        <a class="btn btn-primary" ng-click="panel.selectTab(3)" ng-class="{ active:panel.isSelected(3)}"href="#fakelink">Trails</a>
+        <a class="btn btn-primary" ng-click="panel.selectTab(4)" ng-class="{ active:panel.isSelected(4)}"href="#fakelink">Notes</a>
+      </div>
+    </div> <!-- /toolbar -->
+  </div>
+ <div class="card-block">
+
+
     
   
   <div class="panel" ng-show="panel.tab === 1">
@@ -31,32 +33,49 @@
   <div class="panel" ng-show="panel.tab === 3">
     <ul class="list-group">
     <li class="list-group-item" ng-repeat="note in mountain.notes">
-       <blockquote >
+       <blockquote class="blockquote-reverse" >
        <b>{{note.body}}</b>
-       <cite>-{{note.trail}} {{note.date}}</cite>  
+        <footer class="blockquote-footer"> {{note.trail}} <cite> - {{note.date | date: fullDate}} </cite> </footer>
        </blockquote>
     </li>
     </ul>    
 
-<form name="noteForm" ng-controller="NoteController as noteCtrl" ng-submit="noteForm.$valid && noteCtrl.addNote(mountain)" novalidate>
+<form name="noteForm" ng-controller="NoteController as noteCtrl" ng-submit="noteForm.$valid && noteCtrl.addNote(mountain)" novalidate role = "form">
 
-  <blockquote >
+  <blockquote class="blockquote" ng-show="noteCtrl.note.body">
   <b>{{noteCtrl.note.body}}</b>
-  <cite>-{{noteCtrl.note.trail}} {{noteCtrl.note.date}}</cite>  
+  <footer class="blockquote-footer"> {{noteCtrl.note.trail}} <cite> {{noteCtrl.note.date | date: fullDate}}</cite> </footer> 
   </blockquote>
 
-  <select ng-model="noteCtrl.note.trail" required>
-  <option value="Main Trail">Main Trail</option>
-  <option value="East Trail">East Trail</option>
+<div class="form-group" >
+  <select ng-model="noteCtrl.note.trail" required class="form-control select select-primary">
+  <option selected="selected" disabled="disabled">Please Select a Trail</option>
+    <option value="Main Trail">Main Trail</option>
+    <option value="East Trail">East Trail</option>
   </select>
+</div><!--form group-->
 
-  <textarea ng-model="noteCtrl.note.body" required>  
-  </textarea>
 
-  <input type="submit" value="submit" />
+
+   <div class="input-group" >
+      <input class="form-control" type="text" autocomplete="off" ng-model="noteCtrl.note.body" required/>       
+       <span class="input-group-btn"> 
+       <button class="btn btn-default" value="submit" type="submit">Submit</button>
+      </span>
+    </div>
+  
 </form ><!--noteForm-->
+ <div class="btn-toolbar">
+                <div class="btn-group">
+                  <a class="btn btn-primary" href="#fakelink"><span class="fui-time"></span></a>
+                  <a class="btn btn-primary" href="#fakelink"><span class="fui-photo"></span></a>
+                  <a class="btn btn-primary active" href="#fakelink"><span class="fui-heart"></span></a>
+                  <a class="btn btn-primary" href="#fakelink"><span class="fui-eye"></span></a>
+                </div>
+              </div> <!-- /toolbar -->
 
 </div><!--Panel Tab 3-->
-</section><!--PanelController-->
+
 
 <button class="btn btn-default" ng-hide="mountain.summited">Mark as Climbed</button>
+</div>

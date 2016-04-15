@@ -3,10 +3,10 @@
   <head>
       <meta charset="utf-8" />
       <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css" rel="stylesheet">
 
       <!-- Optional theme -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css">
+      <link rel="stylesheet" href="/flat-ui/v1.3.2/css/flat-ui-pro.min.css">
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css">
@@ -19,11 +19,6 @@
 <body >
   <div class="container">
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 63db5f11f9ba60ea5b4127f2f057c977e316064c
   <div ng-include="'navbar.html'"></div>
 
 
@@ -31,7 +26,7 @@
 
       <div class="row">
 
-        <div ng-repeat="mountain in mountain.info | orderBy: '-elevation'" class="col-md-4 well">
+        <div ng-repeat="mountain in mountain.info | orderBy: '-elevation'">
 
           <mountain-panel></mountain-panel>  
 
@@ -40,15 +35,30 @@
       </div><!--row-->
 
     </div><!--MountainConroller-->
+<div class="card-deck-wrapper">
+  <div class="card-deck">
+  
+    <div class="card">
+      <img class="card-img-top" data-src="..." alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
 
 
   <!-- Latest compiled and minified jQuery -->
-  <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+  <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   ></script>
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/js/flat-ui.min.js"integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous" ></script>
+  <script src="/flat-ui/v1.3.2/js/flat-ui-pro.min.js"></script>
 
   </div><!--Body Container-->
 </body>

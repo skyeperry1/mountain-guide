@@ -2,6 +2,7 @@ body{margin-top:70px;}
 .ng-invalid .ng-dirty{
 	border-color:#E74C3C;
 }
+.mountainNav{text-align:center;}
 .ng-valid .ng-dirty{
 	border-color:#2ECC71;
 }
