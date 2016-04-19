@@ -1,7 +1,259 @@
 body{margin-top:70px;}
+
 .ng-invalid .ng-dirty{
 	border-color:#E74C3C;
 }
+
 .ng-valid .ng-dirty{
 	border-color:#2ECC71;
 }
+
+.periodic_wrapper {
+    padding: 10px;
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin-top: 15px;
+}
+.wrapper_expanded{
+    
+    width: 630px;
+    height: 500px;
+    //background-color: #dfdfdf;
+}
+.periodic{
+height:250px;
+width:250px;
+background-color: #cccccc;
+position: relative;
+color:black;
+padding:10px;
+display: inline-block;
+    float: left;
+}
+
+.periodic_title{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    left: -50%;
+    left: 50%;
+    margin-left: -50%;
+    background-color: blue;
+    color:white;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+}
+
+.title_left{
+    padding-left:10px;
+    text-align:left;
+    font-size:22px;
+    letter-spacing: .15em
+}
+.expand_btn{
+    position: absolute;
+    right: 10px;
+    top: -5px;
+    font-size: 30px;
+}
+.expand_btn a{
+    z-index: 999;
+    position: relative;
+}
+
+.land_mgmt{
+	width:40px;
+	position: absolute;
+	top:35%;
+	text-align: center;
+    letter-spacing: .15em;
+    font-weight: 200;
+    font-size:14px;
+}
+.periodic hr{
+	margin: 0px;
+    border-top: 1px solid black;
+}
+.designation {
+    position: absolute;
+    right: 6px;
+    top: 70px;
+    font-size: 25px;
+}
+.periodic_symbol {
+    position: absolute;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 100%;
+}
+
+.mountain_name {
+    font-size: 18px;
+    position: absolute;
+    bottom: 5px;
+    margin-left: -50%;
+    left: 50%;
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    text-align: center;
+    width: 100%;
+    font-weight: 200;
+}
+
+.icon-mtn-icon {
+    font-size: 185px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -50%;
+    top: -5px;
+}
+.mtn_bg{
+    position: absolute;
+    top: 50px;
+    left: 20px;
+}
+
+.icon_elevation{
+    position: absolute;
+    bottom: 45px;
+    text-align: center;
+    width: 100%;
+    color: white;
+    left: 50%;
+    margin-left: -50%;
+    font-size: 25px;
+    font-weight: bold;
+}
+.summit_type{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 50%;
+    margin-left: -50%;
+    font-size: 25px;
+    top: 5px;
+}
+/*MTN info Tile*/
+.mtn_info {
+    height: auto;
+    width: 250px;
+    background-color: #cccccc;
+    position: absolute;
+    color: black;
+    padding: 10px;
+    margin-top: 5px;
+    padding-top: 35px;
+    float: left;
+    display: block;
+    top: 265px;
+}
+
+.periodic_wrapper .table{
+	font-size: 14px;
+    font-weight: lighter;
+    margin-bottom: 0px;
+}
+
+.periodic_wrapper .table td{
+	padding:1px;
+	border:none;
+}
+.periodic_wrapper .table td:nth-child(odd){
+	font-weight:normal;
+}
+
+/*MTN weather Tile*/
+.mtn_weather {
+    width: 350px;
+    height: auto;
+    background-color: #cccccc;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    position:relative;
+    padding:5px;
+    padding-top: 70px;
+
+}
+
+.mtn_trails {
+    width: 350px;
+    height: auto;
+    background-color: #cccccc;
+    display: inline-block;
+    margin-left: 10px;
+    position:relative;
+    padding:5px;
+    padding-top: 40px;
+    margin-top:10px;
+    float:right;
+
+}
+.trail_count{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 50%;
+    margin-left: -50%;
+    top: 80px;
+    font-weight: 200;
+    font-size: 14px;
+}
+
+.mtn_menu{
+    margin: auto;
+    width: 90%;
+}
+.mtn_menu .active{
+    border-bottom:3px solid #00bcd4;
+    font-weight:normal;
+}
+.mtn_menu a{
+    width: 32%;
+    display: inline-block;
+    color:white;
+    font-weight:lighter;
+        font-size: 16px;
+    border-bottom:3px solid rgba(0,0,0,0);
+}
+.trl_wrapper{position:relative; }
+.trl_badge{width:40px;}
+.trl_status {
+    float: right;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-radius: 6px;
+    background-color: grey;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 5px;
+    color: white;
+}
+.complete{background-color: #41A85F;}
+.trl_main {
+    position: absolute;
+    top: -5px;
+    padding-left: 50px;
+    width: 100%;
+    letter-spacing: .15em;
+}
+.byline {
+    position: absolute;
+    top: 15px;
+    padding-left: 50px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: .15em;
+}
+.trl_wrapper hr{
+    width: 85%;
+    margin-left: 15%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.trl_wrapper:last-child hr{display:none;}

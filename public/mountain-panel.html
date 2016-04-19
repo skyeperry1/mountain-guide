@@ -1,62 +1,68 @@
-<img ng-src="{{mountain.image}}"/>
-<h3>{{ mountain.name }}</h3>
-<section>
-    <ul class="nav nav-pills" >
+<div class="periodic_wrapper" ng-class="{ wrapper_expanded: panel.expanded == true }">
+<div class="periodic">
 
-      <li ng-class="{ active:panel.isSelected(1)}">
-        <a href ng-click="panel.selectTab(1)">Info</a>
-      </li>
+  <div class="periodic_symbol">
+  {{ mountain.symbol }}
+  </div>
 
-      <li ng-class="{ active:panel.isSelected(2)}">
-        <a href ng-click="panel.selectTab(2)">Weather</a>
-      </li>
+  <div class="summit_type">
+    <div class="icon-summit-alpine"> </div>
+  </div>
 
-      <li ng-class="{ active:panel.isSelected(3)}" >
-        <a href ng-click="panel.selectTab(3)">My Climb</a>
-      </li>
+  <div class="expand_btn" ng-hide="panel.expanded ==true ">
+    <a href ng-click="panel.toggleExpand()">+</a>
+  </div>
 
-    </ul>
-    
-  
-  <div class="panel" ng-show="panel.tab === 1">
-      <mountain-info></mountain-info>
-  </div><!--Panel Tab 1-->
+  <div class="expand_btn" ng-show="panel.expanded == true ">
+    <a href ng-click="panel.toggleExpand()">-</a>
+  </div>
 
-  <div class="panel" ng-show="panel.tab === 2">
-    <ul class="list-group">
-     <div ng-include="'weather-report.html'"></div>
-    </ul>
-  </div><!--Panel Tab 2-->
 
-  <div class="panel" ng-show="panel.tab === 3">
-    <ul class="list-group">
-    <li class="list-group-item" ng-repeat="note in mountain.notes">
-       <blockquote >
-       <b>{{note.body}}</b>
-       <cite>-{{note.trail}} {{note.date}}</cite>  
-       </blockquote>
-    </li>
-    </ul>    
 
-<form name="noteForm" ng-controller="NoteController as noteCtrl" ng-submit="noteForm.$valid && noteCtrl.addNote(mountain)" novalidate>
+  <div class="designation">
+    <div class="icon-designation-appalachain"></div>
+  </div>
 
-  <blockquote >
-  <b>{{noteCtrl.note.body}}</b>
-  <cite>-{{noteCtrl.note.trail}} {{noteCtrl.note.date}}</cite>  
-  </blockquote>
+  <div class="view">
+    <div class="icon-view-natural"></div>
+  </div>
 
-  <select ng-model="noteCtrl.note.trail" required>
-  <option value="Main Trail">Main Trail</option>
-  <option value="East Trail">East Trail</option>
-  </select>
+  <div class="other_features">
+    <div class="icon-features-ski"></div>
+  </div>
 
-  <textarea ng-model="noteCtrl.note.body" required>  
-  </textarea>
+  <div class="land_mgmt">
+  {{mountain.county }}
+  <hr>
+  {{mountain.land_manager }}
+  </div>
 
-  <input type="submit" value="submit" />
-</form ><!--noteForm-->
+  <img class="mtn_bg" ng-src="/images/mtn_icon_bg.png"/>
 
-</div><!--Panel Tab 3-->
-</section><!--PanelController-->
+  <div class="icon-mtn-icon" style="color:{{panel.getColor(mountain)}}"></div>
 
-<button class="btn btn-default" ng-hide="mountain.summited">Mark as Climbed</button>
+  <div class="trail_count"> {{ mountain.trails.length }} </div>
+
+  <div class="icon_elevation">{{mountain.elevation }} </div>
+
+  <span class="mountain_name">
+    {{ mountain.display_name }}
+  </span>
+
+</div><!--End Periodic-->
+
+<div class="mtn_weather" ng-show="panel.expanded == true">
+  <div ng-include="'weather-report.html'"></div>
+</div>
+
+
+<div class="mtn_info" ng-show="panel.expanded == true">
+  <mountain-info></mountain-info>
+</div>
+
+<div class="mtn_trails" ng-show="panel.expanded == true">
+  <div ng-include="'trails.html'"></div>
+</div>
+
+
+</div><!--End Periodic Wrapper-->

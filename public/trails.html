@@ -1,0 +1,16 @@
+<div class="periodic_title" style="background-color:{{panel.getColor(mountain)}}">Trails</div>
+
+<div ng-repeat="trail in mountain.trails" class="trl_wrapper">
+<img ng-src="{{trail.badge}}" class="trl_badge"/>
+	<div class="trl_main">
+		<span class="trl_name">{{trail.name}}</span>
+		<span class="trl_status complete" ng-show="{{trail.complete == true}}">Complete</span> 
+		<span class="trl_status" ng-show="{{trail.complete == false}}">Incomplete</span>
+	</div>
+
+	<div class="byline">
+		<span class="trl_distance">{{trail.distance}} miles</span>
+		<span class="trl_book_time"> - {{trail.booktime}}</span>
+	</div>
+	<hr>
+</div>

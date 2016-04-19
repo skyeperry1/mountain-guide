@@ -21,9 +21,18 @@ var mountains = [
 	{	
 		rank : 1,
 		name : "Mount Washington",
+    symbol: "Wa",
+    display_name: "Washington",
 		elevation : 6288,
-		location : "Pinkham's Grant, NH",
+		location : "Pinkham's Grant",
+    county: "CO",
+    land_manager: "NH",
 		summited: false,
+    summit_type: "Alpine",
+    range: "Franconia",
+    region: "East",
+    designation: "Wilderness Area",
+    phone: 6035955555,
 		image : "https://d30y9cdsu7xlg0.cloudfront.net/png/16025-200.png", 
 		notes : [
 				{
@@ -38,14 +47,37 @@ var mountains = [
 				}
 				],
 		coordinates: {lon: 44.270489039 , lat: -71.303246453},
-		weatherconditions: null
+		weatherconditions: null,
+    trails: [{
+      name: "Skyline Trail", 
+      distance: 10.2, 
+      booktime: "6:45",
+      badge: "/images/badges/badge.png",
+      complete: true
+    }, 
+    {
+      name: "Skyline Trail", 
+      distance: 10.2, 
+      booktime: "6:45",
+      badge: "/images/badges/badge.png",
+      complete: false
+    }]
 	},
 	{	
 		rank: 43,
 		name : "Owl's Head",
+    symbol: "Oh",
+    display_name: "Owl's Head",
+    county: "CO",
+    land_manager: "NH",
 		elevation : 4025,
-		location : "Frankconia, NH",
+		location : "Frankconia",
 		summited: true,
+    summit_type: "Alpine",
+    range: "Franconia",
+    region: "West",
+    designation: "Wilderness Area",
+    phone: 6035955555,
 		image: "https://d30y9cdsu7xlg0.cloudfront.net/png/16025-200.png",
 		notes : [
 				{
@@ -55,7 +87,21 @@ var mountains = [
 				}
 		],
 		coordinates: {lon: 44.144444 , lat: -71.605},
-		weatherconditions: null
+		weatherconditions: null,
+    trails: [{
+      name: "Skyline Trail", 
+      distance: 10.2, 
+      booktime: "6:45",
+      badge: "/images/badges/badge.png",
+      complete: true
+    }, 
+    {
+      name: "Skyline Trail", 
+      distance: 10.2, 
+      booktime: "6:45",
+      badge: "/images/badges/badge.png",
+      complete: true
+    }]
 	}
 ];//Mountains
 
