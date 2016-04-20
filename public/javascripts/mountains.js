@@ -78,7 +78,7 @@ app.directive('mountainPanel', function(){
     					google.maps.event.trigger(map, 'resize');
     					console.log("resizing");
     					map.setCenter(mapCenter);
-						}, 100);
+						}, 10);
 		            };
 				},
 		controllerAs: 'panel' //mountainPanel Controller

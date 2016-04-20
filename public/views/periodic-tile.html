@@ -5,7 +5,7 @@
     </div>
 
     <div class="summit_type">
-      <div class="icon-summit-alpine"> </div>
+      <div class="{{mountain.summit_type | summitTypeIcon }}"> </div>
     </div>
 
     <div class="expand_btn" ng-hide="panel.expanded ==true ">
@@ -19,11 +19,11 @@
 
 
     <div class="designation">
-      <div class="icon-designation-appalachain"></div>
+      <div class="{{mountain.designation | trailDesignation }}"></div>
     </div>
 
     <div class="view">
-      <div class="icon-view-natural"></div>
+      <div class="{{ mountain.summit_view |summitView}}"></div>
     </div>
 
     <div class="other_features">

@@ -1,5 +1,5 @@
 (function(){
-var app = angular.module('mountainguide', ['mountainguide-mountains', 'mountainguide-weather', 'weather-icon-filters', 'google-map']);
+var app = angular.module('mountainguide', ['mountainguide-mountains', 'mountainguide-weather', 'weather-icon-filters', 'icon-filter']);
 
 app.controller('MountainController', function(WeatherService){
 	this.info = mountains;
@@ -12,10 +12,9 @@ app.controller('MountainController', function(WeatherService){
 	array[index].weatherconditions = WeatherService.getWeather(array[index].coordinates.lon, array[index].coordinates.lat);
   	//console.log(array[index].weatherconditions);
   	}
-	};  
-
-	
+	};  	
 }); //MountainController(Main)
+
 
 var mountains = [
 	{	
@@ -29,9 +28,10 @@ var mountains = [
     land_manager: "NH",
 		summited: false,
     summit_type: "Alpine",
+    summit_view: "Observation Post",
     range: "Franconia",
     region: "East",
-    designation: "Wilderness Area",
+    designation: "Appalachian Trail",
     phone: 6035955555,
 		image : "https://d30y9cdsu7xlg0.cloudfront.net/png/16025-200.png", 
 		notes : [
@@ -56,7 +56,7 @@ var mountains = [
       complete: true
     }, 
     {
-      name: "Skyline Trail", 
+      name: "Summit Trail", 
       distance: 10.2, 
       booktime: "6:45",
       badge: "/images/badges/badge.png",
@@ -73,7 +73,8 @@ var mountains = [
 		elevation : 4025,
 		location : "Frankconia",
 		summited: true,
-    summit_type: "Alpine",
+    summit_type: "Wooded",
+    summit_view: "Natural",
     range: "Franconia",
     region: "West",
     designation: "Wilderness Area",
@@ -89,14 +90,14 @@ var mountains = [
 		coordinates: {lon:-71.605  , lat: 44.144444},
 		weatherconditions: null,
     trails: [{
-      name: "Skyline Trail", 
+      name: "Ridgeline Trail", 
       distance: 10.2, 
       booktime: "6:45",
       badge: "/images/badges/badge.png",
       complete: true
     }, 
     {
-      name: "Skyline Trail", 
+      name: "Eastern Trail", 
       distance: 10.2, 
       booktime: "6:45",
       badge: "/images/badges/badge.png",

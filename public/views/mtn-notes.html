@@ -15,8 +15,7 @@
   </blockquote>
 
   <select ng-model="noteCtrl.note.trail" required>
-  <option value="Main Trail">Main Trail</option>
-  <option value="East Trail">East Trail</option>
+  <option ng-repeat="trail in mountain.trails" value="{{trail.name}}">{{trail.name}}</option>
   </select>
 
   <textarea ng-model="noteCtrl.note.body" required>  
