@@ -1,0 +1,51 @@
+  <div class="periodic">
+
+    <div class="periodic_symbol">
+      {{ mountain.symbol }}
+    </div>
+
+    <div class="summit_type">
+      <div class="icon-summit-alpine"> </div>
+    </div>
+
+    <div class="expand_btn" ng-hide="panel.expanded ==true ">
+      <a href ng-click="panel.toggleExpand()">+</a>
+    </div>
+
+    <div class="expand_btn" ng-show="panel.expanded == true ">
+      <a href ng-click="panel.toggleExpand()">-</a>
+    </div>
+
+
+
+    <div class="designation">
+      <div class="icon-designation-appalachain"></div>
+    </div>
+
+    <div class="view">
+      <div class="icon-view-natural"></div>
+    </div>
+
+    <div class="other_features">
+      <div class="icon-features-ski"></div>
+    </div>
+
+    <div class="land_mgmt">
+      {{mountain.county }}
+      <hr>
+      {{mountain.land_manager }}
+    </div>
+
+    <img class="mtn_bg" ng-src="/images/mtn_icon_bg.png"/>
+
+    <div class="icon-mtn-icon" style="color:{{panel.getColor(mountain)}}"></div>
+
+    <div class="trail_count"> {{ mountain.trails.length }} </div>
+
+    <div class="icon_elevation">{{mountain.elevation }} </div>
+
+    <span class="mountain_name">
+      {{ mountain.display_name }}
+    </span>
+
+  </div><!--End Periodic-->

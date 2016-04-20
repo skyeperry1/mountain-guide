@@ -1,0 +1,26 @@
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="note in mountain.notes">
+       <blockquote >
+       <b>{{note.body}}</b>
+       <cite>-{{note.trail}} {{note.date}}</cite>  
+       </blockquote>
+    </li>
+    </ul>    
+
+<form name="noteForm" ng-controller="NoteController as noteCtrl" ng-submit="noteForm.$valid && noteCtrl.addNote(mountain)" novalidate>
+
+  <blockquote >
+  <b>{{noteCtrl.note.body}}</b>
+  <cite>-{{noteCtrl.note.trail}} {{noteCtrl.note.date}}</cite>  
+  </blockquote>
+
+  <select ng-model="noteCtrl.note.trail" required>
+  <option value="Main Trail">Main Trail</option>
+  <option value="East Trail">East Trail</option>
+  </select>
+
+  <textarea ng-model="noteCtrl.note.body" required>  
+  </textarea>
+
+  <input type="submit" value="submit" />
+</form >

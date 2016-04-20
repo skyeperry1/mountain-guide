@@ -1,5 +1,5 @@
 (function(){
-var app = angular.module('mountainguide', ['mountainguide-mountains']);
+var app = angular.module('mountainguide', ['mountainguide-mountains', 'mountainguide-weather', 'weather-icon-filters', 'google-map']);
 
 app.controller('MountainController', function(WeatherService){
 	this.info = mountains;
@@ -10,7 +10,7 @@ app.controller('MountainController', function(WeatherService){
 	function updateMtnWeather(element, index, array) {
 		if(array[index].coordinates.lon &&  array[index].coordinates.lat){
 	array[index].weatherconditions = WeatherService.getWeather(array[index].coordinates.lon, array[index].coordinates.lat);
-  	console.log(array[index].weatherconditions);
+  	//console.log(array[index].weatherconditions);
   	}
 	};  
 
@@ -46,7 +46,7 @@ var mountains = [
 					body: "It was a crappy hike"
 				}
 				],
-		coordinates: {lon: 44.270489039 , lat: -71.303246453},
+		coordinates: {lon: -71.303246453 , lat:44.270489039 },
 		weatherconditions: null,
     trails: [{
       name: "Skyline Trail", 
@@ -86,7 +86,7 @@ var mountains = [
 					body: "It was a good hike"
 				}
 		],
-		coordinates: {lon: 44.144444 , lat: -71.605},
+		coordinates: {lon:-71.605  , lat: 44.144444},
 		weatherconditions: null,
     trails: [{
       name: "Skyline Trail", 
@@ -106,58 +106,7 @@ var mountains = [
 ];//Mountains
 
 
-app.factory('WeatherService', function($http){
-return{
-  getWeather: function(lat,lon){
 
-    var todaysWeather = { 
-                    city : null,
-                    temp : {}, 
-                    sunrise:null,
-                    sunset:null,
-                    clouds: null, 
-                    icon: null,
-                    description: null,
-                    wind: {},
-                    humidity:null,
-                    }; //Initialize Object to return
-
-    $http.jsonp('http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&callback=JSON_CALLBACK&APPID=f9dbd911bc01df1d9ce563b2ba4d3209')
-   .success(function(data){
-      if(data){
-        todaysWeather.city = data.name;
-        if(data.main){
-        todaysWeather.temp.cur = data.main.temp;
-        todaysWeather.temp.min = data.main.temp_min;
-        todaysWeather.temp.max = data.main.temp_max;
-        todaysWeather.humidity = data.main.humidity;
-        }
-        if(data.clouds){
-        todaysWeather.clouds = data.clouds.all;
-        }
-        if(data.weather){
-        todaysWeather.icon = data.weather[0].main.toLowerCase();
-        todaysWeather.description = data.weather[0].description;
-        }
-        if(data.wind){
-          todaysWeather.wind.speed = data.wind.speed;
-          todaysWeather.wind.direction = data.wind.deg;
-        }
-        if(data.sys){
-          todaysWeather.sunrise = data.sys.sunrise * 1000;  
-          todaysWeather.sunset = data.sys.sunset * 1000;  
-          console.log("sunrise: " + data.sys.sunrise + "city: " + data.sys.sunset);
-        }
-      } else {
-        //Error Reporting
-        console.log(long + '/' + lat + 'No Weather Data Found'); 
-      }
-    });
-    //console.log(todaysWeather);
-    return todaysWeather;
-  }  //End getWeather
-  }; //End Factory Return
-});  //End WeatherService Factory
 
 
 })(); //Function Wrapper

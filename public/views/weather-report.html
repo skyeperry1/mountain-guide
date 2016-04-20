@@ -1,0 +1,38 @@
+<div class="panel1_left">
+<i class="{{mountain.weatherconditions | mainWeatherIcon}}  weather_main"></i>
+<span class="weather_description"> {{ mountain.weatherconditions.description }}</span>
+
+<i class="wi wi-thermometer"></i>
+<div class="temps">
+       <div class="current_temp"> {{ mountain.weatherconditions.temp.cur }}<i class="wi wi-fahrenheit"></i></div>
+       <div class="other_temps">LOW: {{ mountain.weatherconditions.temp.min }} 
+       		 / HIGH: {{ mountain.weatherconditions.temp.max }} </div>
+
+</div>
+</div><!--panel1 left-->
+<table class="table mtn_weather_table" >
+
+      <tr>
+        <td><i class="wi wi-sunrise"></i></td>
+        <td> {{mountain.weatherconditions.sunrise | date : 'h:mm:ss a'}}</td>
+      </tr>
+
+      <tr>
+        <td><i class="wi wi-sunset"></i></td>
+        <td>{{mountain.weatherconditions.sunset | date : 'h:mm:ss a' }} </td>
+      </tr>
+
+       <tr>
+        <td><i class="{{mountain.weatherconditions.wind.speed | beaufortIcon}}"></i></td>
+        <td>{{mountain.weatherconditions.wind.speed}} Mph</td>
+      </tr>
+
+       <tr>
+        <td><i class="wi wi-humidity"></i></td>
+        <td>{{mountain.weatherconditions.humidity}}%</td>
+      </tr>
+     
+    </tbody>
+
+    
+  </table>

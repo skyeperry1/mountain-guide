@@ -1,0 +1,21 @@
+<div class="periodic_wrapper" ng-class="{ wrapper_expanded: panel.expanded == true }">
+  
+  
+  <div ng-include="'/views/periodic-tile.html'"></div>
+
+
+  <div class="mtn_weather" ng-show="panel.expanded == true">
+    <div ng-include="'/views/mtn-dashboard.html'"></div>
+  </div>
+
+
+  <div class="mtn_info" ng-show="panel.expanded == true">
+    <mountain-info></mountain-info>
+  </div>
+
+  <div class="mtn_trails" ng-show="panel.expanded == true">
+    <div ng-include="'/views/trails.html'"></div>
+  </div>
+
+
+</div><!--End Periodic Wrapper-->

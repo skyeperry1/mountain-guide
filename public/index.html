@@ -10,6 +10,7 @@
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css">
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAixNjntf8CHvXubNmuykB7YxKeW1zlLQU" type="text/javascript"></script>
       <link href="https://file.myfontastic.com/cMajWsiFhL5AJBzr7MyRwB/icons.css" rel="stylesheet">
 
 
@@ -17,11 +18,15 @@
       <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.16/angular.js" data-semver="1.2.16"></script>
       <script src="/javascripts/app.js"></script>
       <script src="/javascripts/mountains.js"></script>
+      <script src="/javascripts/weather.js"></script>
+      <script src="/javascripts/googlemap.js"></script>
+      <!--Filters-->
+      <script src="/javascripts/filters/weatherfilter.js"></script>
 </head>
 <body >
   <div class="container-fluid">
 
-  <div ng-include="'navbar.html'"></div>
+  <div ng-include="'/views/navbar.html'"></div>
 
 
     <div class="" ng-controller='MountainController as mountain'>

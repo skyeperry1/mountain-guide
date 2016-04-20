@@ -1,0 +1,24 @@
+<div class="periodic_title" style="background-color:{{panel.getColor(mountain)}}">
+   	<div class="title_left">{{mountain.name}}</div>
+
+
+
+    <div class="mtn_menu">
+    	<a href ng-class="{ active:panel.isSelected(1)}" ng-click="panel.selectTab(1)">Weather</a>
+    	<a href ng-class="{ active:panel.isSelected(2)}" ng-click="panel.selectTab(2); panel.appendMap(mountain)">Map</a>
+    	<a href ng-class="{ active:panel.isSelected(3)}" ng-click="panel.selectTab(3)">Notes</a>
+    </div>
+
+</div>
+
+<div class="panel1" ng-show="panel.isSelected(1)" ng-include="'/views/weather-report.html'">
+</div>
+
+<div class="panel2" ng-show="panel.isSelected(2)">
+
+<div id="{{mountain.symbol}}"  class="terrain_map" ></div>
+
+</div>
+
+<div class="panel3" ng-show="panel.isSelected(3)" ng-include="'/views/mtn-notes.html'">
+</div>
