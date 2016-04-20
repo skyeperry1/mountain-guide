@@ -121,9 +121,7 @@ return{
                     wind: {},
                     humidity:null,
                     }; //Initialize Object to return
-      
-    //$http.jsonp('http://api.openweathermap.org/data/2.5/weather?zip=' + zipCode + ',us&units=imperial&callback=JSON_CALLBACK&APPID=fbd17554e063d707ecf8d9d4357f5765')
-    //http://api.openweathermap.org/data/2.5/weather?lat=71.303&lon=44.270&units=imperial&APPID=fbd17554e063d707ecf8d9d4357f5765
+
     $http.jsonp('http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&callback=JSON_CALLBACK&APPID=f9dbd911bc01df1d9ce563b2ba4d3209')
    .success(function(data){
       if(data){
@@ -146,12 +144,13 @@ return{
           todaysWeather.wind.direction = data.wind.deg;
         }
         if(data.sys){
-          todaysWeather.sunrise = new Date(data.sys.sunrise * 1000).getHours() //+ ":" + new Date(data.sys.sunrise * 1000).getMinutes();
-          todaysWeather.sunset = new Date(data.sys.sunset * 1000).getHours() //+ ":" + new Date(data.sys.sunset * 1000).getMinutes();
+          todaysWeather.sunrise = data.sys.sunrise * 1000;  
+          todaysWeather.sunset = data.sys.sunset * 1000;  
+          console.log("sunrise: " + data.sys.sunrise + "city: " + data.sys.sunset);
         }
       } else {
         //Error Reporting
-        alert(long + '/' + lat + 'No Weather Data Found'); 
+        console.log(long + '/' + lat + 'No Weather Data Found'); 
       }
     });
     //console.log(todaysWeather);

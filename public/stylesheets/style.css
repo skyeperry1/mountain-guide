@@ -125,8 +125,9 @@ display: inline-block;
     color: white;
     left: 50%;
     margin-left: -50%;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: .1em;
 }
 .summit_type{
     position: absolute;
@@ -151,17 +152,63 @@ display: inline-block;
     display: block;
     top: 265px;
 }
+.weather_main{
+    font-size: 80px;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    display: block;
+}
+.mtn_weather_table{
+    font-size: 18px;
+    width:48%;
+    float:right;
+    margin-top: 15px;
+    margin-bottom:0px;
+}
+.mtn_weather_table i{font-size:25px;}
+.weather_description{width: 100%;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+margin-bottom:5px;
+}
 
-.periodic_wrapper .table{
+.panel1_left{width:49%; float:left;}
+.wi-thermometer{
+        font-size: 41px;
+    margin-top: 10px;
+    width: 25%;
+    text-align: center;
+}
+.temps{
+    width: 75%;
+    float: right;
+    text-align:left;
+    position: relative;
+}
+.temps i {
+    position: absolute;
+    top: 3px;
+    font-size: 30px;
+    margin-left: 3px;
+}
+.other_temps{font-size:12px;}
+.current_temp{    
+    font-weight: bold;
+    font-size: 20px;}
+.mtn_info .table{
 	font-size: 14px;
     font-weight: lighter;
     margin-bottom: 0px;
 }
 
-.periodic_wrapper .table td{
+.mtn_info .table td{
 	padding:1px;
 	border:none;
 }
+
 .periodic_wrapper .table td:nth-child(odd){
 	font-weight:normal;
 }
