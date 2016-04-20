@@ -18,7 +18,7 @@ return{
                     //pressure: null
                     }; //Initialize Object to return
 
-    $http.jsonp('http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&callback=JSON_CALLBACK&APPID=f9dbd911bc01df1d9ce563b2ba4d3209')
+    $http.jsonp('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&callback=JSON_CALLBACK&APPID=f9dbd911bc01df1d9ce563b2ba4d3209')
    .success(function(data){
       if(data){
         todaysWeather.city = data.name;
